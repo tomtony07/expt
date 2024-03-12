@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
-  background-image: url('register.jpeg'); /* Replace 'reg.jpg' with the path to your image */
+  background-image: url('register.jpg'); /* Replace 'reg.jpg' with the path to your image */
   background-size: cover;
   background-position: center;
 }
@@ -46,7 +46,7 @@ body {
 
 button {
   padding: 10px 20px;
-  background-color: #c5cbd1;
+  background-color: #044e97;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -55,7 +55,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #022b58;
 }
 
 .login-section {
