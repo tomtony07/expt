@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($age < 1) {
         die("Invalid age");
     }
-
+//johjklb
     // Validate password format
     $passwordPattern = '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,8}$/';
     if (!preg_match($passwordPattern, $password)) {
