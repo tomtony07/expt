@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
-  background-image: url('register.jpg'); /* Replace 'reg.jpg' with the path to your image */
+  background-image: url('register.jpeg'); /* Replace 'reg.jpg' with the path to your image */
   background-size: cover;
   background-position: center;
 }
