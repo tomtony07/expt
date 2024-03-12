@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Package Booking</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Package Booking</h1>
+        <div id="packages-list"></div>
+        <div id="booking-form" style="display: none;">
+            <h2>Book a Travel Package</h2>
+            <form>
+                <label for="package">Select Package:</label>
+                <select id="package" required></select>
+
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" required>
+
+                <button type="button" onclick="submitBooking()">Book Now</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  background-image: url('register.jpeg'); /* Replace 'reg.jpg' with the path to your image */
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registration-form {
+  background-color: hwb(271 41% 10% / 0);
+  padding: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(64, 65, 64, 0);
+}
+
+.registration-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  color: #000000;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #c5cbd1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.login-section {
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loginsection p {
+  color: #fff;
+  margin-left: 0cm;
+  margin-bottom: auto;
+}
+
+.login-section a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-section a:hover {
+  text-decoration: underline;
+}

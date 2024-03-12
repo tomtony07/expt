@@ -1,0 +1,50 @@
+<!-- packadd.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Packages</title>
+  <link rel="stylesheet" href="packadd.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Add Travel Package</h2>
+    <form class="travel-form" action="packages.php" method="post">
+      <div class="input-group">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required>
+      </div>
+      <div class="input-group">
+        <label for="images">Images (URL):</label>
+        <input type="text" id="images" name="images" required>
+      </div>
+      <div class="input-group">
+        <label for="base-price">Base Price:</label>
+        <input type="number" id="base-price" name="base-price" min="0" required>
+      </div>
+      <div class="input-group">
+        <label for="persons">Number of Persons:</label>
+        <input type="number" id="persons" name="persons" min="1" required>
+      </div>
+      <div class="input-group">
+        <label for="total-price">Total Price:</label>
+        <input type="text" id="total-price" name="total-price" readonly>
+      </div>
+      <button type="button" onclick="calculateTotalPrice()">Calculate Total Price</button>
+      <button type="submit">Add Package</button>
+    </form>
+  </div>
+
+  <script>
+    function calculateTotalPrice() {
+      const basePrice = parseFloat(document.getElementById('base-price').value);
+      const persons = parseInt(document.getElementById('persons').value);
+      const totalPrice = basePrice * persons;
+
+      document.getElementById('total-price').value = totalPrice.toFixed(2);
+    }
+  </script>
+</body>
+</html>
