@@ -1,12 +1,11 @@
 <?php
-$host = '127.0.0.1';
-$username = 'root';
-$password = '';
-$database = 'travel_tourism';
-
-$conn = new mysqli($host, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$localhost="127.0.0.1";
+$username="root";
+$passwd="";
+$dbname="travel_agency";
+$connect=new mysqli($localhost,$username,$passwd,$dbname);
+if($connect->connect_error)
+{
+    die("connection failed");
 }
 ?>
