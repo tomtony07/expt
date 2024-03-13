@@ -13,27 +13,32 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  
 }
 
 .registration-form {
-  background-color: hwb(271 41% 10% / 0);
-  padding: 200px;
+  background-color: rgba(64, 65, 64, 0.5);
+  padding: 75px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 0px rgba(64, 65, 64, 0);
+  color: #fff;
 }
 
 .registration-form h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .input-group {
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .input-group label {
-  color: #000000;
+  color: #fff;
   display: block;
+
   margin-bottom: 5px;
 }
 
@@ -67,6 +72,7 @@ button:hover {
 .loginsection p {
   color: #fff;
   margin-left: 0cm;
+  text-align: center;
   margin-bottom: auto;
 }
 
@@ -78,3 +84,14 @@ button:hover {
 .login-section a:hover {
   text-decoration: underline;
 }
+/* CSS for Link Styling */
+
+p a {
+  color: lightblue;
+  text-decoration: none; /* Remove the default underline */
+}
+
+p a:hover {
+  text-decoration: underline; /* Underline the link on hover */
+}
+
