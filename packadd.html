@@ -1,77 +1,50 @@
+<!-- packadd.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Travel Agency</title>
-  <link rel="stylesheet" href="about_us.css"> <!-- Link to your CSS file -->
+  <title>Travel Packages</title>
+  <link rel="stylesheet" href="packadd.css">
 </head>
 <body>
-  <section class="nav-bar">
-    <div class="logo">Go Trip</div>
-    <ul class="menu">
-      <li><a href="adminpan.html">home</a></li>
-      <li><a href="#">package</a></li>
-      <li><a href="about_us.html">about us</a></li>
-      <li><a href="login.html">logout</a></li>
-    </ul>
-  </section>
-
-  <header>
-    <!-- Header content here -->
-  </header>
-
-  <main>
-    <section class="about">
-      <div class="about-content">
-        <h2>New Packages</h2>
+  <div class="container">
+    <h2>Add Travel Package</h2>
+    <form class="travel-form" action="packadd.php" method="post">
+      <div class="input-group">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required>
       </div>
-    </section>
-  </main>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details from Database</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Details from Database</h1>
-        <div class="details">
-            <div class="detail" id="detail">
-                <!-- Details will be filled in dynamically using JavaScript -->
-            </div>
-        </div>
-    </div>
+      <div class="input-group">
+        <label for="images">Images (URL):</label>
+        <input type="text" id="images" name="images" required>
+      </div>
+      <div class="input-group">
+        <label for="base-price">Base Price:</label>
+        <input type="number" id="base-price" name="base-price" min="0" required>
+      </div>
+      <div class="input-group">
+        <label for="persons">Number of Persons:</label>
+        <input type="number" id="persons" name="persons" min="1" required>
+      </div>
+      <div class="input-group">
+        <label for="total-price">Total Price:</label>
+        <input type="text" id="total-price" name="total-price" readonly>
+      </div>
+      <button type="button" onclick="calculateTotalPrice()">Calculate Total Price</button>
+      <button type="submit">Add Package</button>
+    </form>
+  </div>
 
-    <script>
-        // Function to fetch data from the PHP file using AJAX
-        function fetchData() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var data = JSON.parse(this.responseText);
-                    document.getElementById('detail').innerHTML = `
-                        <img src="data:image/jpeg;base64,${data.image_url}" alt="Image">
-                        <h2>Destination: ${data.destination}</h2>
-                        <p>Package_id: ${data.package_id}</p>
-                        <p>Package_name: ${data.package_name}</p>
-                        <p>Description: ${data.description}</p>
-                        <p>Price: ${data.price}</p>
-                        <p>Depature: ${data.depature}</p>
-                        <p>Depature_date: ${data.depature_date}</p>
-                        <!-- Add more details here as needed -->
-                    `;
-                }
-            };
-            xhttp.open("GET", "fetch_details.php", true);
-            xhttp.send();
-        }
+  <script>
+    function calculateTotalPrice() {
+      const basePrice = parseFloat(document.getElementById('base-price').value);
+      const persons = parseInt(document.getElementById('persons').value);
+      const totalPrice = basePrice * persons;
 
-        // Call the fetchData function when the page loads
-        window.onload = function() {
-            fetchData();
-        };
-    </script>
+      document.getElementById('total-price').value = totalPrice.toFixed(2);
+    }
+  </script>
 </body>
 </html>
