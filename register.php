@@ -1,86 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+ 
+</head>
+<body>
 <?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $age = $_POST["age"];
-    $password = $_POST["password"];
-    $confirm_password = $_POST["confirm_password"];
+include 'connection.php';
 
-    // Check if password and confirm_password match
-    if ($password !== $confirm_password) {
-        echo "<script>alert('Error: Passwords do not match');</script>";
-        echo "<script>window.location.href = 'register.html';</script>";
-        exit(); // Stop further execution
-    }
+$uname = $_GET["username"];
+$eid = $_GET["email"];
+$age = $_GET["age"];
+$pw1 = $_GET["password"];
+$pw2 = $_GET["confirm_password"];
 
-    // Check password format
-    if (!preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-_+=])[a-zA-Z0-9!@#$%^&*()-_+=]{8,30}$/", $password)) {
-        echo "<script>alert('Error: Password must be between 8-30 characters long and contain at least 1 special character, 1 number, 1 uppercase letter, and 1 lowercase letter');</script>";
-        echo "<script>window.location.href = 'register.html';</script>";
-        exit(); // Stop further execution
-    }
-
-    // Database connection parameters
-    $servername = "127.0.0.1"; // Change this if your MySQL server is on a different host
-    $username = "root"; // Change this to your MySQL username
-    $password = ""; // Change this to your MySQL password
-    $database = "travel_agency";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Check if email already exists
-    $sql_check_email = "SELECT * FROM users WHERE email = ?";
-    $stmt_check_email = $conn->prepare($sql_check_email);
-    $stmt_check_email->bind_param("s", $email);
-    $stmt_check_email->execute();
-    $result_check_email = $stmt_check_email->get_result();
-
-    if ($result_check_email->num_rows > 0) {
-        // Email already exists
-        echo "<script>alert('Error: Email already exists');</script>";
-        echo "<script>window.location.href = 'register.html';</script>";
-        exit(); // Stop further execution
-    }
-
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // SQL query to insert data into users table
-$sql_insert_user = "INSERT INTO users (username, email, age, password, confirm_password) VALUES (?, ?, ?, ?, ?)";
-
-// Prepare and bind parameters
-$stmt_insert_user = $conn->prepare($sql_insert_user);
-$stmt_insert_user->bind_param("ssiss", $username, $email, $age, $hashedPassword, $confirm_password);
-
-// Execute the statement
-if ($stmt_insert_user->execute()) {
-    // Close statement
-    $stmt_insert_user->close();
-    
-    // Close connection
-    $conn->close();
-
-    // Display registration successful message
-    echo "<script>alert('Registration successful. Please login.');</script>";
-
-    // Redirect to login page after displaying message
-    echo "<script>window.location.href = 'login.html';</script>";
-    exit(); // Stop further execution
-} else {
-    echo "Error: " . $sql_insert_user . "<br>" . $conn->error;
+// Function to validate email format
+function isValidEmail($email) {
+  return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+// Function to validate password format
+function isValidPassword($password) {
+  // Password should have at least 8 characters, an uppercase letter, a special character, and a number
+  return preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $password);
+}
 
-    // Close statement and connection
-    $stmt_insert_user->close();
-    $conn->close();
+if (!isValidEmail($eid)) {
+  echo "<script>alert('Invalid email format. Registration unsuccessful.');</script>";
+  echo "<script>window.location.href='register.html';</script>";
+}elseif ($pw1 !== $pw2) {
+  echo "<script>alert('passwords do not match.');</script>";
+  echo "<script>window.location.href='register.html';</script>";
+} 
+elseif (!isValidPassword($pw1)) {
+  echo "<script>alert('Invalid password format. password must be minimum 8 charachters. it should have atleast 1 uppercase, One digit, one special character');</script>";
+    echo "<script>window.location.href='login.html';</script>";
+}
+ elseif ($pw1 === $pw2 && isValidPassword($pw1)) {
+  $query = "INSERT INTO users(username,email,age,password) VALUES ('$uname','$eid','$age','$pw1')";
+  $result = $connect->query($query);
+
+  if ($result) {
+    echo "<script>alert('Registration successful. Welcome $uname');</script>";
+    echo "<script>window.location.href='login.html';</script>";
+  } else {
+    echo "<script>alert('You already have an account with this email id.');</script>";
+    echo "<script>window.location.href='register.html';</script>";
+  }
+} else {
+  echo "<script>alert('Invalid password format. password must be minimum 8 charachters. it should have atleast 1 uppercase, One digit, one special character');</script>";
+  echo "<script>window.location.href='login.html';</script>";
 }
 ?>
+
+
+</body>
+</html>
