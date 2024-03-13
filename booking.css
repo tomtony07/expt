@@ -1,7 +1,7 @@
 /* CSS for Travel Package Display */
 
 #packages-list {
-    background-image:"booking.jpeg";
+    background-image:url(booking.jpeg);
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
