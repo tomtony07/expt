@@ -10,27 +10,31 @@
 
     <h1>Available Travel Packages</h1>
 
-    <select id="package">
-        <option value="" disabled selected>Select a Package</option>
-    </select>
+    <form id="bookingForm" action="booking.php" method="post">
 
-    <div id="packages-list" class="packages-list"></div>
+        <select id="package" name="package">
+            <option value="" disabled selected>Select a Package</option>
+            <option value="1">package 1</option>
+            <option value="2">package 2</option>
+            <option value="3">package 3</option>
+        </select>
 
-    <div id="booking-form" class="booking-form">
-        <h2>Booking Form</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-        <button onclick="submitBooking()">Submit Booking</button>
-    </div>
+        <div id="packages-list" class="packages-list"></div>
+
+        <div id="booking-form" class="booking-form">
+            <h2>Booking Form</h2>
+            <label for="name">Travel Date:</label>
+            <input type="text" id="date" name="date" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="button" onclick="submitBooking()">Submit Booking</button>
+        </div>
+    </form>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const packages = [
-                { id: 1, name: "Package 1", price: 500 },
-                { id: 2, name: "Package 2", price: 800 },
-                { id: 3, name: "Package 3", price: 1200 }
+                
             ];
 
             const packageSelect = document.getElementById("package");
