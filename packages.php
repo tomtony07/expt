@@ -46,10 +46,11 @@ img {
 
       if ($result->num_rows > 0) {
         echo '<table border="1">';
-        echo '<tr><th>Name</th><th>Description</th><th>Price</th><th>Duration</th><th>Destination Name</th><th>Departure Date</th><th>Image</th></tr>';
+        echo '<tr><th>PackageID</th><th>Name</th><th>Description</th><th>Price</th><th>Duration</th><th>Destination Name</th><th>Departure Date</th><th>Image</th></tr>';
 
         while ($row = $result->fetch_assoc()) {
           echo '<tr>';
+          echo '<td>' . $row["PackageID"] . '</td>';
           echo '<td>' . $row["Name"] . '</td>';
           echo '<td>' . $row["Description"] . '</td>';
           echo '<td>' . $row["Price"] . '</td>';
