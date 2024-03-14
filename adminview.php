@@ -65,7 +65,6 @@
   <main>
     <section class="about">
       <div class="about-content">
-        <h2>New Packages</h2>
       </div>
     </section>
   </main>
@@ -77,7 +76,6 @@
 </head>
 <body>
     <div class="container">
-        <h1>Details from Database</h1>
         <div class="details">
             <div class="detail" id="detail">
                 <!-- Details will be filled in dynamically using JavaScript -->
