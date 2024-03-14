@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $imageUrl = $targetFile;
 
                 // SQL query to insert data into the 'packages' table
-                $sql = "INSERT INTO package (Name, Description, Price, Duration, destinationName, departure_date, image_url)
+                $sql = "INSERT INTO package (Name, Description, Price, Duration, DestinationName, departure_date, image_url)
                         VALUES ('$packageName', '$description', '$price', '$duration', '$destination', '$departureDate', '$imageUrl')";
 
                 if ($conn->query($sql) === TRUE) {

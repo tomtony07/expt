@@ -10,7 +10,7 @@
   <section class="nav-bar">
     <div class="logo">Go Trip</div>
     <ul class="menu">
-      <li><a href="pro.html">home</a></li>
+      <li><a href="adminpan.html">home</a></li>
       <li><a href="packages.php">package</a></li>
       <li><a href="about_us.html">about us</a></li>
       <li><a href="login.html">logout</a></li>

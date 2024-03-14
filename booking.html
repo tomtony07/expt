@@ -14,9 +14,9 @@
 
         <select id="package" name="package">
             <option value="" disabled selected>Select a Package</option>
-            <option value="1">package 1</option>
-            <option value="2">package 2</option>
-            <option value="3">package 3</option>
+            <option value="4">package 4</option>
+            <option value="5">package 5</option>
+            <option value="6">package 6</option>
         </select>
 
         <div id="packages-list" class="packages-list"></div>
@@ -42,12 +42,12 @@
             packages.forEach(package => {
                 const option = document.createElement("option");
                 option.value = package.id;
-                option.text = ${package.name} - $${package.price};
+                option.text = `${package.name} - $${package.price}`;
                 packageSelect.appendChild(option);
 
                 const packageItem = document.createElement("div");
                 packageItem.classList.add("package-item"); // Add CSS class
-                packageItem.innerHTML = <strong>${package.name}</strong> - $${package.price};
+                packageItem.innerHTML = `<strong>${package.name}</strong> - $${package.price}`;
                 packagesList.appendChild(packageItem);
             });
 
@@ -56,14 +56,6 @@
             });
         });
 
-        function submitBooking() {
-            const selectedPackageId = document.getElementById("package").value;
-            const packageName = document.getElementById("package").options[document.getElementById("package").selectedIndex].text;
-            const userName = document.getElementById("name").value;
-            const userEmail = document.getElementById("email").value;
-
-            alert(Booking Confirmed!\nPackage: ${packageName}\nName: ${userName}\nEmail: ${userEmail});
-        }
     </script>
 
 </body>

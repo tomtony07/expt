@@ -1,3 +1,5 @@
+
+
 <?php
 // Include your database connection file or establish a connection here
 // Example using mysqli
@@ -10,7 +12,7 @@ if (isset($_SESSION['logged_in_user'])) {
 
 $servername = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = " ";
 $dbname = "travel_agency";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
