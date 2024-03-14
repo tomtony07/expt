@@ -73,7 +73,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details from Database</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adminview.css">
 </head>
 <body>
     <div class="container">
