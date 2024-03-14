@@ -12,19 +12,19 @@ if ($conn->connect_error) {
 }
 
 // Retrieve user input
-$email = $_POST['email'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 
 // Hash the password (for security, you should use a strong hashing algorithm)
 $hashedPassword = hash('sha256', $password);
 
 // Query to check if the provided email and hashed password exist in the database
-$sql = "SELECT * FROM adminlogin WHERE email='$email' AND password='$password'";
+$sql = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Login successful
-    header("Location: logindetail.php");
+    header("Location: adminpan.html");
     exit();
 } else {
     // Login failed

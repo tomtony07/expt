@@ -5,21 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Travel Agency</title>
   <link rel="stylesheet" href="about_us.css"> <!-- Link to your CSS file -->
-  <style>/* Define maximum width and height for images */
-img {
-    max-width: 100%; /* Ensures the image does not exceed its container's width */
-    max-height: 300px; /* Adjust the maximum height as needed */
-    display: block; /* Ensures images do not have extra spacing below */
-    margin: auto; /* Centers the image horizontally */
-}
-</style>
 </head>
 <body>
   <section class="nav-bar">
     <div class="logo">Go Trip</div>
     <ul class="menu">
       <li><a href="pro.html">home</a></li>
-      <li><a href="packages.php">package</a></li>
+      <li><a href="packages.html">package</a></li>
       <li><a href="about_us.html">about us</a></li>
       <li><a href="login.html">logout</a></li>
     </ul>
@@ -28,48 +20,11 @@ img {
   <header>
     <!-- Header content here -->
   </header>
-  <div class="registerdata-table">
-      <?php
-      $servername = "127.0.0.1";
-      $username = "root";
-      $password = " ";
-      $dbname = "travel_agency"; // your database name
-      
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      } 
-      
-      $sql = "SELECT * FROM package";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-        echo '<table border="1">';
-        echo '<tr><th>Name</th><th>Description</th><th>Price</th><th>Duration</th><th>Destination Name</th><th>Departure Date</th><th>Image</th></tr>';
-
-        while ($row = $result->fetch_assoc()) {
-          echo '<tr>';
-          echo '<td>' . $row["Name"] . '</td>';
-          echo '<td>' . $row["Description"] . '</td>';
-          echo '<td>' . $row["Price"] . '</td>';
-          echo '<td>' . $row["Duration"] . '</td>';
-          echo '<td>' . $row["DestinationName"] . '</td>';
-          echo '<td>' . $row["Departure_date"] . '</td>';
-          echo '<td><img src="' . $row["image_url"] . '" alt="Package Image"></td>';
-          echo '</tr>';
-        }
-
-        echo '</table>';
-      } else {
-        echo 'No records found';
-      }
-      ?>
-    </div>
 
   <main>
     <section class="about">
       <div class="about-content">
+        <h2>New Packages</h2>
       </div>
     </section>
   </main>
@@ -81,6 +36,7 @@ img {
 </head>
 <body>
     <div class="container">
+        <h1>Details from Database</h1>
         <div class="details">
             <div class="detail" id="detail">
                 <!-- Details will be filled in dynamically using JavaScript -->

@@ -30,7 +30,41 @@
         </div>
     </form>
 
-   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const packages = [
+                
+            ];
+
+            const packageSelect = document.getElementById("package");
+            const packagesList = document.getElementById("packages-list");
+
+            packages.forEach(package => {
+                const option = document.createElement("option");
+                option.value = package.id;
+                option.text = ${package.name} - $${package.price};
+                packageSelect.appendChild(option);
+
+                const packageItem = document.createElement("div");
+                packageItem.classList.add("package-item"); // Add CSS class
+                packageItem.innerHTML = <strong>${package.name}</strong> - $${package.price};
+                packagesList.appendChild(packageItem);
+            });
+
+            packageSelect.addEventListener("change", function () {
+                document.getElementById("booking-form").style.display = "block";
+            });
+        });
+
+        function submitBooking() {
+            const selectedPackageId = document.getElementById("package").value;
+            const packageName = document.getElementById("package").options[document.getElementById("package").selectedIndex].text;
+            const userName = document.getElementById("name").value;
+            const userEmail = document.getElementById("email").value;
+
+            alert(Booking Confirmed!\nPackage: ${packageName}\nName: ${userName}\nEmail: ${userEmail});
+        }
+    </script>
 
 </body>
 </html>

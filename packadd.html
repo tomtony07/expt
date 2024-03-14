@@ -1,5 +1,3 @@
-<!-- packadd.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +9,7 @@
 <body>
   <div class="container">
     <h2>Add Travel Package</h2>
-    <form class="travel-form" action="packadd.php" method="post">
+    <form class="travel-form" action="packadd.php" method="post" enctype="multipart/form-data">
       <div class="input-group">
         <label for="package-name">Package Name:</label>
         <input type="text" id="package-name" name="package-name" required>
@@ -37,13 +35,12 @@
         <input type="date" id="departure-date" name="departure-date" required>
       </div>
       <div class="input-group">
-        <label for="image-url">Image URL:</label>
-        <input type="text" id="image-url" name="image-url" required>
+        <label for="image-file">Upload Image:</label>
+        <input type="file" id="image-file" name="image-url" required>
       </div>
       <button type="submit">Add Package</button>
     </form>
   </div>
-
   <script>
     function calculateTotalPrice() {
       const basePrice = parseFloat(document.getElementById('base-price').value);
